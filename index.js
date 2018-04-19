@@ -57,7 +57,7 @@ class SnackbarComponent extends Component {
             this.setState({hideDistance: event.nativeEvent.layout.height});
           }}
         >
-          <Text style={[styles.text_msg, {color: this.props.messageColor}]}>{this.props.textMessage}</Text>
+          {this.props.textMessage && (typeof this.props.textMessage === "string") ? <Text style={[styles.text_msg, {color: this.props.messageColor}]}>{this.props.textMessage}</Text> : this.props.textMessage }
           {this.props.actionHandler && this.props.actionText &&
             <Touchable onPress={() => {this.props.actionHandler()}} >
               <Text style={[styles.action_text, {color: this.props.accentColor}]}>{this.props.actionText.toUpperCase()}</Text>
